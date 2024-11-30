@@ -1,14 +1,13 @@
-name: Checking Tests
+name: Cypress Tests
 
 on:
   pull_request:
     branches:
       - develop
-      - staging
 
 jobs:
   test:
-    name: Checking Tests
+    name: Run Cypress Tests
     runs-on: ubuntu-latest
 
     steps:
@@ -22,10 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build App
         run: npm run build
 
-      - name: Run vitest tests
+      - name: Run cypress tests
         run: npm run test
-
